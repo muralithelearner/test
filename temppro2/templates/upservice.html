@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="stylesheet" href="./style.css">  
+    <title>conact</title>
+    {% include 'cdnlines.html'%}
+    <style>
+    /* for tag # / (.) for class*/
+        .container{
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="container" style="border: 2px red solid" id="h1"> -->
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-4 col-md-4" style="border: 2px red solid"> 
+                        <h1 class="text-center pb-4 pt-2 border-danger">Service Update</h1>
+                <!-- here md/xs/sm/lg here md means mediam screens  like laptop-->
+                <form method="POST" id="formname">
+                    {% csrf_token %}
+                    <!-- cross site request forgery (some kind of security purpose) -->
+                    <label for="" class="mb-0" style="font-weight: 500;">Shift</label>
+                    <input type="text" required class="form-control mb-2 text-primary" placeholder="ex-Morning/aft/nigt" name="shf" id="iname" pattern="[a-zA-Z]{3,10}">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Sunday</label>
+                    <input type="text" required name="sun" id="" class="form-control mb-2 text-primary" pattern="[a-zA-Z]{3,10}">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Monday</label>
+                    <input type="text" required class="form-control mb-2 text-primary" placeholder="" name="mon" pattern="[a-zA-Z]{3,10}">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Tuesday</label>
+                    <input type="text" required name="tue" id="" class="form-control mb-2 text-primary" placeholder="" pattern="[a-zA-Z]{3,10}">
+
+                    <label for="" class="mb-0"style="font-weight: 500;">Wednesday</label>
+                    <input type="text" required name="wed" id="" class="form-control mb-2 text-primary" placeholder="" pattern="[a-zA-Z]{3,10}">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Thuersday</label>
+                    <input type="text" required name="thu" id="" class="form-control mb-2 text-primary" pattern="[a-zA-Z]{3,10}" >
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Friday</label>
+                    <input type="text" required name="fri" id="" class="form-control text-primary"  pattern="[a-zA-Z]{3,10}">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Saturaday</label>
+                    <input type="text" required name="sat" id="" class="form-control mb-2 text-primary" pattern="[a-zA-Z]{3,10}">
+
+                    <!-- <input type="number" required name="reqd" id="reqd-input" class="form-control text-primary" placeholder="1/2/3/4/5" pattern="[1-5]"> -->
+                    <center>
+                    <input type="submit" name="" id=""class="mt-2 mb-2 ml-5 btn-success" value="submit">
+                    <input type="reset" class="ml-5 btn-danger btn-md">
+                    <a href="{% url 'edits' %}" class="float-right">Go back</a>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

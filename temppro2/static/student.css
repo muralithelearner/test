@@ -1,0 +1,53 @@
+thead tr th{
+    text-align: center;
+    color: white;
+    background-color: rgb(75, 64, 64);
+    position: sticky;
+    top: 98px;
+}
+tbody tr td{
+    text-align: center;
+}
+#firstrow{
+    position: sticky;
+    padding: 8px;
+    margin: 2px 0px 0px 0px;
+    background-color: #93e793;
+    top:0;
+    z-index: 1;
+}
+.table{
+    background-color:rgb(255, 167, 167);
+    color: black;    
+}
+/* .table:hover{
+    color: black;
+} */
+#service_btn{
+    margin-left: -23px;
+    margin-bottom: -60px;
+}
+tbody tr td:hover{
+    color: #0051ff;     
+}
+#public_serv{
+    margin-right: -23px;
+    margin-top: 28px;
+    padding: 6px;
+    /* margin-bottom: 10px; */
+}
+#bysdata{
+    margin-top: 25px;
+    margin-right: 40px;
+}
+#row2{
+    background-color: rgb(75, 64, 64);
+    margin-left: 1px;
+    margin-right: 1px;
+    position: sticky;
+    top: 70px;
+    z-index: 1;
+}
+#searchbtn{
+    margin-left: -16px;
+}

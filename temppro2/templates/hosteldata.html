@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'cdnlines.html'%}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'hosteldata.css'%}">
+
+    <!-- hosteldata.css -->
+    <style>
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">BOYS DATA</h1>
+            </div>
+        </div>
+        <div class="flux-row" id="flux">
+            <!-- <div class="col-md-12"> -->
+                <b>Admin:</b>
+                <span class="float-right text-white">Hello {{ request.user }}, </a></span>
+                
+                <div id="main"><a href="{% url 'home' %}">Main menu</a></div>
+                <!-- <a href="" class="text-white float-left " id="main">Main menu</a> -->
+                <div><a href="{% url 'edits' %}" class="" id="service">Service menu</a></div>
+                <div><a href="{% url 'stu_login' %}" class="" id="request">Request menu</a></div>
+            <!-- </div> -->
+        </div>
+
+    {% if hostel %}
+        <table class="table table-bordered table-hover text-center">
+            <thead class="taxt-center">
+                <tr>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Block</th>
+                    <th>Share </th>
+                    <th>Room no</th>
+                    <th>Joining data</th>
+                    <th>Rent</th>
+                    <th>Image</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            {% for i in hostel %}
+            <tbody>
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.mobile }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.block }}</td>
+                    <td>{{ i.share_members}}</td>
+                    <td>{{ i.room_no }}</td>
+                    <td>{{ i.joining_date }}</td>
+                    <td>{{ i.rent }}</td>
+                    <td><img href="" alt="photo not available"> </td> 
+                    <td>
+                        <a href="" class="btn" id="btn">Paid</a>
+                        <a href="" class="btn">Not paid</a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h1>No data available </h1>
+        {% endif %}
+    </div>
+</body>
+</html>

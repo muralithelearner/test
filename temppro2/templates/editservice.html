@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service</title>
+    {%include 'cdnlines.html'%}
+    <style>
+    h1{
+        color: white;  
+        margin-top: 20px;
+        background-color:blue;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    tbody:hover{
+        color: rgb(13, 108, 232);
+    }
+    #admin{
+        float: right;
+        
+    }
+    #table{
+        /* border: 2px black solid; */
+        box-shadow: 0px 0px 8px red;
+    }
+    #thead{
+        /* border: 3px green solid; */
+        /* box-shadow: right+ bottem+ shadethick green; */
+        /* box-shadow: left- top- shadethick green; */
+        box-shadow: 5px 5px 3px green;
+    }
+    #update{
+        margin-bottom:2px;
+    }
+    #service{
+        margin-left:80px;
+    }
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>WELCOME TO MADHU BOYS HOSTEL</h1><br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="{% url 'upservice' %}" class="btn-primary btn btn-md" id="update">Update service</a>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="text-left" id="service">Service page</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{% url 'stu_login' %}" id="admin">Students page</a>
+                    </div>
+                </div>
+                {% if service %}
+                <table class="table table-bordered text-center table-hover" id="table">
+                    <thead id="thead">
+                        <tr class="text-success">
+                            <th>Shift</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thuersday</th>
+                            <th>Friday</th>
+                            <th>Saturaday</th>
+                            <th>Sunday</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in service %}
+                        <tr>
+                            <td>{{ i.shift }}</td>
+                            <td>{{ i.monday }}</td>
+                            <td>{{ i.tuesday }}</td>
+                            <td>{{ i.wednesday }}</td>
+                            <td>{{ i.thursday }}</td>
+                            <td>{{ i.friday }}</td>
+                            <td>{{ i.saturaday }}</td>
+                            <td>{{ i.sunday }}</td>
+                            <td>
+                                <a href="{% url 'update' i.id %}" class="btn-primary btn btn-sm " >Update</a>
+                                <a href="{% url 'delete' i.id %}" class="btn-danger btn btn-sm mr-2" >Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h1>Menu was not update please wait until update</h1>
+                {% endif %}
+                <!-- <a href="{% url 'add'%}" class="btn-success btn btn-md">Register</a> -->
+                <a href="{% url 'home' %}" class="btn-primary btn btn-sm float-right" >Public service view</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

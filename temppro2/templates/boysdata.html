@@ -1,0 +1,86 @@
+<!-- {% load static %}  if wu use this upaload any pic in html static use this tag-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="stylesheet" href="./style.css">  
+    <title>conact</title>
+    {% include 'cdnlines.html'%}
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #members{
+            padding-right: 50px;
+        }
+    /* for tag # / (.) for class*/
+    </style>
+</head>
+<body>
+    <!-- <div class="container" style="border: 2px red solid" id="h1"> -->
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-4 col-md-4" style="border: 2px red solid"> 
+                    <h1 class="text-center pb-4 pt-2 border-danger">Boys Details</h1>
+                <!-- here md/xs/sm/lg here md means mediam screens  like laptop-->
+                <form method="POST" id="formname" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- cross site request forgery (some kind of security purpose) -->
+                    <label for="" class="mb-0" style="font-weight: 500;">Enter your full name</label>
+                    <input type="text" required class="form-control mb-2 text-primary" placeholder="ex-muraliprasad" name="name" id="iname" pattern="[a-zA-Z\ ]{3,20}">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Mobile</label>
+                    <input type="number" required class="form-control mb-2 text-primary" placeholder="9000000009" name="mbl" pattern="[\d]{10}">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Email</label>
+                    <input type="text" required name="email" id="" class="form-control mb-2 text-primary" placeholder="email@gmail.com" pattern='^[a-zA-Z0-9._%-+]+[\@][A-Za-z]{5,}+[\.][a-zA-Z]{3,}'>
+
+                    <label for="" class="mb-0"style="font-weight: 500;">Block</label>
+                    <input type="text" required name="block" id="" class="form-control mb-2 text-primary" placeholder="A/B" pattern="[a-zA-Z]{1}">
+
+                    <fieldset >
+                        <legend>Share Members</legend>
+                        
+                        <div id="radiobtn" >
+                            <!-- here name given all attributes as like the same other wish it select all  -->
+                            <input type="radio" value="1" name="members"  >
+                            <label for="" id="members">1</label>
+                    
+                            <input type="radio" value="2" name="members" id="" >
+                            <label for="" id="members">2</label>
+                  
+                            <input type="radio" value="3" name="members" id="" >
+                            <label for="" id="members">3</label>
+
+                            <input type="radio" value="4" name="members"  id=""  checked>
+                            <label for="" id="members">4</label>
+
+                        </div>
+
+                    </fieldset>
+                   
+                    <label for="" class="mb-0" style="font-weight: 500;">Room no</label>
+                    <input type="number" required name="reqd" id="" class="form-control text-primary" placeholder="101" pattern="[1-5]" name="rno">
+
+                    <label for="">Joining date</label>
+                    <input type="date" required name="jdt"><br>
+
+                    <label for="" required>Rent</label>
+                    <input type="number" required pattern="[0-9]{4}" name="rent"><br><br>
+                    <label for="">Take a selfi</label>
+                    <input type="file" name="image">
+    
+                    <!-- <input type="number" required name="reqd" id="reqd-input" class="form-control text-primary" placeholder="1/2/3/4/5" pattern="[1-5]"> -->
+
+                    <center>
+                    <input type="submit" name="" id=""class="mt-2 mb-2 ml-2 btn-success" value="submit" >
+                    <input type="reset" class="ml-5 btn-danger btn-md">
+                    <a href="{% url 'home' %}" class="float-right">Go back</a>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

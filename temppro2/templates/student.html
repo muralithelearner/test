@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>feedback</title>
+    {% include 'cdnlines.html'%}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'student.css' %}">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="containe-fluid">
+        <div class="row" id="firstrow">
+            <div class="col-md-4">
+                <a href="{% url 'edits'%}" class="btn btn-primary" id="service_btn">Modify service menu</a>
+            </div>     
+            <div class="col-md-4">
+                <h1 class="text-center">Joining required</h1>
+            </div>
+            <div class="col-md-2s">
+                <a href="{% url 'hostel' %}" class="btn brn btn-success" id="bysdata">Boys hostel data</a>
+            </div> 
+            <div class="col-md-2">
+                <a href="{% url 'home' %}" class="btn-primary btn btn-sm float-right" id="public_serv">Public service view</a>
+            </div>
+        </div>
+        <div class="row" id="row2">
+            <div class="col-md-12">
+                <form method="POST">
+                    {% csrf_token %}
+                        <input type="text" name="living_purpose"  id="searchbtn" placeholder="search here">
+                        <input type="submit" value="search">
+                        <a href="{% url 'logout' %}" class="float-right">Logout</a>
+                      <span class="float-right text-white">Hello {{ request.user }}, </a></span>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% if  key %}
+                <table class="table table-bordered 2px solid table-hover ">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>From  city</th>
+                            <th>Living purpose</th>
+                            <th>Occupation</th>
+                            <th>Starting date</th>
+                            <th>Sharing required</th>
+                            <th>Actions</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in key %}
+                        <tr>
+                            <td>{{ i.id }}</td>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.from_city }}</td>
+                            <td>{{ i.living_purpose }}</td>
+                            <td>{{ i.occupation }}</td>
+                            <td>{{ i.starting_date }}</td>
+                            <td>{{ i.sharig_required }}</td>
+                            <td>
+                                <a href="" class="btn-primary btn btn-sm">Accept</a>
+                                <a href="{% url 'stu_delete' i.id %}" class="btn-danger btn btn-sm">Reject</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h1>No data is available</h1>
+                {%  endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

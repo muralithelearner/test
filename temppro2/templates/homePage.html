@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service</title>
+    {%include 'cdnlines.html'%}
+    <style>
+    h1{
+        color: white;  
+        margin-top: 20px;
+        background-color:blue;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    tbody:hover{
+        color: rgb(13, 108, 232);
+    }
+    a{
+        float: right;
+    }
+    #table{
+        /* border: 2px black solid; */
+        box-shadow: 0px 0px 8px red;
+    }
+    #thead{
+        /* border: 3px green solid; */
+        /* box-shadow: right+ bottem+ shadethick green; */
+        /* box-shadow: left- top- shadethick green; */
+        box-shadow: 5px 5px 3px green;
+    }
+    h4,h5{
+        color: green;
+    }
+    h3{
+        color: blue;
+    }
+    
+    
+.btn {
+  font-size:15px;
+  font-family:Arial;
+  width:140px;
+  height:37px;
+  border-width:1px;
+  color:#fff;
+  border-color:#1f2f47;
+  border-top-left-radius:17px;
+  border-top-right-radius:17px;
+  border-bottom-left-radius:17px;
+  border-bottom-right-radius:17px;
+  box-shadow:inset 0px 0px 15px 3px #23395e;
+  text-shadow:inset 0px 1px 0px #f63939;
+  background:linear-gradient(#fb0000, #415989);
+}
+
+.btn:hover {
+  background: linear-gradient(#ebebee, #e3e7ef);
+}
+
+              
+
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>WELCOME TO MADHU BOYS HOSTEL</h1><br>
+                <div class="container" id="table">
+                    <div class="row ">
+                        <div class="col-md-4 ">
+                            
+                            <h4>Timings</h4>
+                            <hr><h5>Open</h5><br>
+                            <h5>Close</h5><hr>
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <h4 class="text-center">Morning</h4>
+                            <hr><h4 class="text-center text-primary">6:00 AM</h4><br>
+                            <h4 class="text-center">___</h4><hr>
+                        </div>
+                        <div class="text-right col-md-2">
+                            <h4 >Night</h4>
+                            <hr><h4 class="text-right">___</h4><br>
+                            <h4 class="text-right text-primary">11:00 PM</h4><hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h5>Brakfast</h5>
+                            <h5>Lunch</h5>
+                            <h5>Dinner</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>7:00 - 10:00 AM</h3>
+                            <h3>12:00 - 3:00 PM</h3>
+                            <h3>7:00 - 10:30 PM</h3>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><br>
+                        <h4 class="text-left">Service</h4>
+                    </div>
+                    <div class="col-md-6"><br>
+                        <a href="{% url 'login' %}">Admin login</a>
+                    </div>
+                </div>
+                {% if service %}
+                <table class="table table-bordered text-center table-hover" id="table">
+                    <thead id="thead">
+                        <tr class="text-success">
+                            <th>Shift</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thuersday</th>
+                            <th>Friday</th>
+                            <th>Saturaday</th>
+                            <th>Sunday</th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in service %}
+                        <tr>
+                            <td>{{ i.shift }}</td>
+                            <td>{{ i.monday }}</td>
+                            <td>{{ i.tuesday }}</td>
+                            <td>{{ i.wednesday }}</td>
+                            <td>{{ i.thursday }}</td>
+                            <td>{{ i.friday }}</td>
+                            <td>{{ i.saturaday }}</td>
+                            <td>{{ i.sunday }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <b class="text-danger">Note:</b>
+                <span>Menu can be changeed any time please check every day</span>
+                {% else %}
+                <h1>Menu was not update please wait until update</h1>
+                {% endif %}
+                <a href="{% url 'add'%}" class="btn btn btn-md" >Register</a><br><br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

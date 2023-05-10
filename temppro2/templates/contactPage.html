@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="stylesheet" href="./style.css">  
+    <title>conact</title>
+    {% include 'cdnlines.html'%}
+    <style>
+    /* for tag # / (.) for class*/
+    </style>
+</head>
+<body>
+    <!-- <div class="container" style="border: 2px red solid" id="h1"> -->
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-4 col-md-4" style="border: 2px red solid"> 
+                    <h1 class="text-center pb-4 pt-2 border-danger">Contact Details</h1>
+                <!-- here md/xs/sm/lg here md means mediam screens  like laptop-->
+                <form method="POST" id="formname">
+                    {% csrf_token %}
+                    <!-- cross site request forgery (some kind of security purpose) -->
+                    <label for="" class="mb-0" style="font-weight: 500;">Enter your full name</label>
+                    <input type="text" required class="form-control mb-2 text-primary" placeholder="ex-muraliprasad" name="fname" id="iname" pattern="^[a-zA-Z]+(([. ][a-zA-Z ])?[a-zA-Z]*)*$">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Where are you from</label>
+                    <input type="text" required class="form-control mb-2 text-primary" placeholder="Hyderabad" name="from" pattern="[a-zA-Z]{3,10}">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Living purpose</label>
+                    <input type="text" required name="pur" id="" class="form-control mb-2 text-primary" placeholder="Coaching/job" pattern="[a-zA-Z]{3,10}">
+
+                    <label for="" class="mb-0"style="font-weight: 500;">Occupation</label>
+                    <input type="text" required name="ocp" id="" class="form-control mb-2 text-primary" placeholder="Student/employee" pattern="[a-zA-Z]{3,10}">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Starting date</label>
+                    <input type="date" required name="jdt" id="" class="form-control mb-2" pattern="\[d]{2}-[\d]{2}-[\d]{4}">
+
+                    <label for="" class="mb-0" style="font-weight: 500;">Sharing required</label>
+                    <input type="number" required name="reqd" id="" class="form-control text-primary" placeholder="1/2/3/4/5" pattern="[1-5]">
+
+                    <!-- <input type="number" required name="reqd" id="reqd-input" class="form-control text-primary" placeholder="1/2/3/4/5" pattern="[1-5]"> -->
+
+                    <center>
+                    <input type="submit" name="" id=""class="mt-2 mb-2 ml-2 btn-success" value="submit" >
+                    <input type="reset" class="ml-5 btn-danger btn-md">
+                    <a href="{% url 'home' %}" class="float-right">Go back</a>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
